@@ -1,4 +1,5 @@
-const MessageBubble = ({ message, currentUser }) => {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+const MessageBubble = ({ message, currentUser }: { message: any, currentUser: any }) => {
   const isSender = message.sender === currentUser;
   const messageTime = new Date(message.time);
   const formattedText = message.text.replaceAll('\n', '<br>');

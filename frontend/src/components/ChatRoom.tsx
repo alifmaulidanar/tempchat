@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Button, Input, Card, Modal, message, notification } from 'antd';
@@ -9,7 +11,7 @@ const ChatRoom = () => {
   const { id: code, username } = location.state || {};
   const [messages, setMessages] = useState<any[]>([]);
   const [newMessage, setNewMessage] = useState('');
-  const [waitingForConfirmation, setWaitingForConfirmation] = useState(false);
+  const [, setWaitingForConfirmation] = useState(false);
   const [confirmationReceived, setConfirmationReceived] = useState(false);
   const [isSocketConnected, setIsSocketConnected] = useState(false);
   const [isEndChatModalVisible, setIsEndChatModalVisible] = useState(false);
@@ -126,7 +128,7 @@ const ChatRoom = () => {
 
   const sendMessage = () => {
     if (newMessage.trim() === '') return;
-    const message = { sender: username, text: newMessage, time: new Date().toISOString() };
+    const message = { type: 'message', sender: username, text: newMessage, time: new Date().toISOString() };
     const messageId = `${message.type}-${message.text}-${message.time}`;
 
     if (socketRef.current && isSocketConnected && !messageSetRef.current.has(messageId)) {
