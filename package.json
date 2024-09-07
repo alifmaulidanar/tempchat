@@ -1,0 +1,12 @@
+{
+  "name": "tempchat-web",
+  "version": "1.0.0",
+  "description": "TempChat is a temporary chat application that allows users to communicate in real-time using unique codes. This application does not store messages after the chat session ends, ensuring user privacy.",
+  "main": "index.js",
+  "scripts": {
+    "fe": "cd frontend && npm run dev",
+    "be": "cd backend && npm start"
+  },
+  "author": "",
+  "license": "ISC"
+}
